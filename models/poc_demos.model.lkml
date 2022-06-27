@@ -8,16 +8,16 @@ include: "/views/e-commerce/*.view.lkml"
 
 datagroup: poc_demos_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
-  max_cache_age: "1 hour"
+  max_cache_age: "24 hours"
 }
 
 persist_with: poc_demos_default_datagroup
 
-label: "POC Demo(e-com)"   # proje ismini değiştirir
+label: "POC Demo(e-commerce)"   # proje ismini değiştirir
 
 explore: order_items {
-  label: "Demo POC model (e-commerce)"   # model ismini değiştirir
-  description: "Demolarda kullanılacak POC"   # proje açıklaması
+  label: "POC model (e-commerce)"   # model ismini değiştirir
+  description: "POC"   # proje açıklaması
   #persist_for: "0  seconds"
 
   join: orders {
