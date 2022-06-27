@@ -10,7 +10,7 @@ datagroup: basket_default_datagroup {
 
 persist_with: basket_default_datagroup
 
-label: "Demo Basket Analysis"   # proje ismini değiştirir
+label: "POC Basket Analysis"   # proje ismini değiştirir
 
 explore: basket_analysis{
   join: order_items{

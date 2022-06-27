@@ -39,11 +39,13 @@ view: products {
 
   measure: total_cost {
     type: sum
+    value_format: "#,##0.00"
     sql: ${cost} ;;
   }
 
   measure: average_cost {
     type: average
+    value_format: "#,##0.00"
     sql: ${cost} ;;
   }
 
@@ -70,6 +72,7 @@ view: products {
 
   measure: total_retail_price {
     type: sum
+    value_format: "#,##0.00"
     sql: ${TABLE}.retail_price ;;
   }
 
@@ -78,10 +81,30 @@ view: products {
     sql: ${TABLE}.sku ;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: [detail*]
+  # what if analizi için parametre tanımı ve hesaplama
+  parameter: cost_ratio {   # cost oranı için parametre girişi
+    type: number
   }
+  parameter: price_ratio {   # price oranı için parametre girişi
+    type: number
+  }
+
+  measure: final_cost {   # oran * cost sonucu
+    type: number
+    value_format: "#,##0.00"
+    sql: ((${total_cost} * {% parameter cost_ratio %}) /100) + ${total_cost} ;;
+  }
+
+  measure: final_price {   # oran * price sonucu
+    type: number
+    value_format: "#,##0.00"
+    sql: ((${total_retail_price} * {%parameter price_ratio %}) /100) + ${total_retail_price};;
+  }
+
+  #measure: count {
+   # type: count
+    #drill_fields: [detail*]
+  #}
 
   # ----- Sets of fields for drilling ------
   set: detail {
