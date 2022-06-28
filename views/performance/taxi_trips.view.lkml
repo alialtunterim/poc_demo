@@ -27,16 +27,6 @@ view: taxi_trips {
   # measures for this dimension, but you can also add measures of many different aggregates.
   # Click on the type parameter to see all the options in the Quick Help panel on the right.
 
-  measure: total_dropoff_census_tract {
-    type: sum
-    sql: ${dropoff_census_tract} ;;
-  }
-
-  measure: average_dropoff_census_tract {
-    type: average
-    sql: ${dropoff_census_tract} ;;
-  }
-
   dimension: dropoff_community_area {
     type: number
     description: "The Community Area where the trip ended."
@@ -55,20 +45,29 @@ view: taxi_trips {
     sql: ${TABLE}.dropoff_location ;;
   }
 
+  dimension: dropoff_lat_long {
+    type: location
+    sql_latitude: ${dropoff_latitude} ;;
+    sql_longitude: ${dropoff_longitude} ;;
+    suggest_dimension: dropoff_location
+  }
+
   dimension: dropoff_longitude {
     type: number
     description: "The longitude of the center of the dropoff census tract or the community area if the census tract has been hidden for privacy."
     sql: ${TABLE}.dropoff_longitude ;;
   }
 
-  dimension: extras {
-    type: number
+  measure: extras {
+    type: sum
+    value_format: "#,##0"
     description: "Extra charges for the trip."
     sql: ${TABLE}.extras ;;
   }
 
-  dimension: fare {
-    type: number
+  measure: fare {
+    type: sum
+    value_format: "#,##0"
     description: "The fare for the trip."
     sql: ${TABLE}.fare ;;
   }
@@ -103,6 +102,13 @@ view: taxi_trips {
     sql: ${TABLE}.pickup_location ;;
   }
 
+  dimension: pickup_lat_long {
+    type: location
+    sql_latitude: ${pickup_latitude} ;;
+    sql_longitude: ${pickup_longitude} ;;
+    suggest_dimension: pickup_location
+  }
+
   dimension: pickup_longitude {
     type: number
     description: "The longitude of the center of the pickup census tract or the community area if the census tract has been hidden for privacy."
@@ -115,14 +121,16 @@ view: taxi_trips {
     sql: ${TABLE}.taxi_id ;;
   }
 
-  dimension: tips {
-    type: number
+  measure: tips {
+    type: sum
+    value_format: "#,##0"
     description: "The tip for the trip. Cash tips generally will not be recorded."
     sql: ${TABLE}.tips ;;
   }
 
-  dimension: tolls {
-    type: number
+  measure: tolls {
+    type: sum
+    value_format: "#,##0"
     description: "The tolls for the trip."
     sql: ${TABLE}.tolls ;;
   }
@@ -157,6 +165,12 @@ view: taxi_trips {
     sql: ${TABLE}.trip_seconds ;;
   }
 
+  measure: trip_hours {
+    type: sum
+    value_format: "#,##0"
+    sql: ${TABLE}.trip_seconds / 3600 ;;
+  }
+
   dimension_group: trip_start_timestamp {
     type: time
     description: "When the trip started, rounded to the nearest 15 minutes."
@@ -172,8 +186,9 @@ view: taxi_trips {
     sql: ${TABLE}.trip_start_timestamp ;;
   }
 
-  dimension: trip_total {
-    type: number
+  measure: trip_total {
+    type: sum
+    value_format: "#,##0"
     description: "Total cost of the trip, the total of the fare, tips, tolls, and extras."
     sql: ${TABLE}.trip_total ;;
   }
