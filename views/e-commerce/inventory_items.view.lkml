@@ -29,7 +29,9 @@ view: inventory_items {
 
   measure: total_cost {
     type: sum
+    value_format: "#,##0"
     sql: ${cost} ;;
+    required_access_grants: [object_permissions]    # model kısmında oluşturduğumuz access grantı bu kolona tanımlıyoruz
   }
 
   measure: average_cost {

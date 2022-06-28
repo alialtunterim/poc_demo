@@ -52,9 +52,14 @@ explore: order_items {
     sql_on: ${users.id}=${events.user_id} ;;
   }
 
-  access_filter: {      # access filter tanımlıyoruz
-    field: products.category      # hangi tablonun hangi kolonu yetkilendirilecek
+  access_filter: {      # access filter tanımlıyoruz. MODEL İÇERİSİNDE TANIMLANIR
+    field: inventory_items.product_category      # hangi tablonun hangi kolonu yetkilendirilecek
     user_attribute: category      # user attribute ü tanımlıyoruz
   }
 
+}
+
+access_grant: object_permissions {      # Access grant ile herhangi bir kolonu yetkilendirebiliriz. Bu satırda isim verdik
+  user_attribute: object_permission     # oluşturduğumuz user attribute ü tanımlıyoruz
+  allowed_values: ["yetkili"]           # user attribute içerisindeki verilere göre izin veriyoruz
 }
