@@ -52,4 +52,9 @@ explore: order_items {
     sql_on: ${users.id}=${events.user_id} ;;
   }
 
+  access_filter: {      # access filter tanımlıyoruz
+    field: products.category      # hangi tablonun hangi kolonu yetkilendirilecek
+    user_attribute: category      # user attribute ü tanımlıyoruz
+  }
+
 }
