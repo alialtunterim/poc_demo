@@ -30,6 +30,7 @@ view: distribution_centers {
 
   dimension: name {
     type: string
+    label: "Distribution Center"
     sql: ${TABLE}.name ;;
   }
 
