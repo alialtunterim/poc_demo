@@ -98,6 +98,7 @@ view: order_items {
 
   measure: average_sale_price {
     type: average
+    value_format: "#,##0.00"
     sql: ${sale_price} ;;
   }
 

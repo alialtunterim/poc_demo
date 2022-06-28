@@ -21,6 +21,14 @@ view: products {
   dimension: brand {
     type: string
     sql: ${TABLE}.brand ;;
+    link: {
+      label: "Brand Detail"
+      url: "https://komtas.cloud.looker.com/dashboards/64?&Brand={{ value }}"
+    }
+    link: {
+      label: "Google Search"
+      url: "http://www.google.com/search?q={{ value }}"
+    }
   }
 
   dimension: category {
@@ -62,6 +70,7 @@ view: products {
 
   dimension: name {
     type: string
+    label: "Product Name"
     sql: ${TABLE}.name ;;
   }
 
