@@ -4,7 +4,7 @@ view: orders {
   # to be used for all fields in this view.
   sql_table_name: `bigquery-public-data.thelook_ecommerce.orders`
     ;;
-  drill_fields: [order_id]
+  # drill_fields: [order_id]
   # This primary key is the unique key for this table in the underlying database.
   # You need to define a primary key in a view in order to join to other views.
 
