@@ -87,11 +87,15 @@ view: order_items {
     sql: ${TABLE}.sale_price ;;
   }
 
-  # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
-  # measures for this dimension, but you can also add measures of many different aggregates.
-  # Click on the type parameter to see all the options in the Quick Help panel on the right.
-
+  # satış datası filtrelendi.
   measure: total_sale_price {
+    type: sum
+    value_format: "#,##0"
+    sql: ${sale_price} ;;
+    filters: [status: "Complete,Processing,Shipped"]    # sadece 3 statu gelecek şekilde filtrelendi
+  }
+
+  measure: total_sale_price_not_filter {
     type: sum
     value_format: "#,##0"
     sql: ${sale_price} ;;
