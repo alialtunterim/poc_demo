@@ -23,13 +23,32 @@ view: users {
     sql: ${TABLE}.age ;;
   }
 
-  # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
-  # measures for this dimension, but you can also add measures of many different aggregates.
-  # Click on the type parameter to see all the options in the Quick Help panel on the right.
-
-  measure: total_age {
-    type: sum
-    sql: ${age} ;;
+  # tablo özelinde case when yazarak ayrı bir kolon oluşturuldu.
+  dimension: age_group {
+    type: string
+    case: {
+      when: {
+        sql: ${age} between 0 and 18  ;;
+        label: "0-18"
+      }
+      when: {
+        sql: ${age} between 19 and 25 ;;
+        label: "19-25"
+      }
+      when: {
+        sql: ${age} between 26 and 40 ;;
+        label: "26-40"
+      }
+      when: {
+        sql: ${age} between 41 and 55 ;;
+        label: "41-55"
+      }
+      when: {
+        sql: ${age} between 56 and 70 ;;
+        label: "56-70"
+      }
+      else: "71+"
+    }
   }
 
   measure: average_age {
@@ -40,6 +59,13 @@ view: users {
   dimension: city {
     type: string
     sql: ${TABLE}.city ;;
+  }
+
+  dimension: city_lat_long {
+    type: location
+    sql_latitude: ${latitude} ;;
+    sql_longitude: ${longitude} ;;
+    suggest_dimension: city
   }
 
   dimension: country {

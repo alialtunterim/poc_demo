@@ -38,6 +38,7 @@ view: events {
       time,
       date,
       week,
+      day_of_week,
       month,
       quarter,
       year
@@ -63,20 +64,6 @@ view: events {
   dimension: sequence_number {
     type: number
     sql: ${TABLE}.sequence_number ;;
-  }
-
-  # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
-  # measures for this dimension, but you can also add measures of many different aggregates.
-  # Click on the type parameter to see all the options in the Quick Help panel on the right.
-
-  measure: total_sequence_number {
-    type: sum
-    sql: ${sequence_number} ;;
-  }
-
-  measure: average_sequence_number {
-    type: average
-    sql: ${sequence_number} ;;
   }
 
   dimension: session_id {

@@ -34,6 +34,13 @@ view: distribution_centers {
     sql: ${TABLE}.name ;;
   }
 
+  dimension: Center_Lat_Long{
+    type: location
+    sql_latitude: ${latitude} ;;
+    sql_longitude: ${longitude} ;;
+    suggest_dimension: name
+  }
+
   measure: count {
     type: count
     drill_fields: [id, name, products.count]
