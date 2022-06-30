@@ -87,18 +87,18 @@ view: order_items {
     sql: ${TABLE}.sale_price ;;
   }
 
-  # satış datası filtrelendi.
   measure: total_sale_price {
     type: sum
     value_format: "#,##0"
     sql: ${sale_price} ;;
-    filters: [status: "Complete,Processing,Shipped"]    # sadece 3 statu gelecek şekilde filtrelendi
   }
 
-  measure: total_sale_price_not_filter {
+  # satış datası filtrelendi.
+  measure: total_sale_price_filtered {
     type: sum
     value_format: "#,##0"
     sql: ${sale_price} ;;
+    filters: [status: "Complete,Processing,Shipped"]    # sadece 3 statu gelecek şekilde filtrelendi
   }
 
   measure: average_sale_price {
