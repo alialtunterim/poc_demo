@@ -65,6 +65,7 @@ view: order_items {
 
   dimension: product_id {
     type: number
+    label: "product_id"
     # hidden: yes
     sql: ${TABLE}.product_id ;;
   }
