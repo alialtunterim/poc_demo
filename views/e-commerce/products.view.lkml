@@ -21,6 +21,7 @@ view: products {
   dimension: brand {
     type: string
     sql: ${TABLE}.brand ;;
+    drill_fields: [category,name]
 
     link: {
       label: "Google Search"
@@ -36,7 +37,7 @@ view: products {
   dimension: category {
     type: string
     sql: ${TABLE}.category ;;
-    drill_fields: [brand,name]
+    drill_fields: [brand,name]  # drill
   }
 
   dimension: cost {
@@ -75,6 +76,7 @@ view: products {
     type: string
     label: "Product Name"
     sql: ${TABLE}.name ;;
+    drill_fields: [order_items.status]
   }
 
   dimension: retail_price {

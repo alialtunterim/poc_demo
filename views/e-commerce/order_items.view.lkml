@@ -58,14 +58,14 @@ view: order_items {
 
   dimension: order_id {
     type: number
-    label: "order_id"
+    label: "order id"
     # hidden: yes
     sql: ${TABLE}.order_id ;;
   }
 
   dimension: product_id {
     type: number
-    label: "product_id"
+    label: "product id"
     # hidden: yes
     sql: ${TABLE}.product_id ;;
   }
@@ -126,6 +126,7 @@ view: order_items {
   dimension: status {
     type: string
     sql: ${TABLE}.status ;;
+    drill_fields: [products.category, products.brand, products.name]
   }
 
   dimension: user_id {
