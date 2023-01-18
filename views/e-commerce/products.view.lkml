@@ -43,6 +43,7 @@ view: products {
   dimension: cost {
     type: number
     sql: ${TABLE}.cost ;;
+    description: "maliyet"
   }
 
   # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
