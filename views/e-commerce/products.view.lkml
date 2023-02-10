@@ -21,7 +21,7 @@ view: products {
   dimension: brand {
     type: string
     sql: ${TABLE}.brand ;;
-    drill_fields: [category,name]
+    drill_fields: [category,name,order_items.status]
 
     link: {
       label: "Google Search"
