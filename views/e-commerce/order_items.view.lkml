@@ -58,7 +58,7 @@ view: order_items {
 
   dimension: order_id {
     type: number
-    label: "Sipariş id"
+    label: "order id"
     # hidden: yes
     sql: ${TABLE}.order_id ;;
   }
