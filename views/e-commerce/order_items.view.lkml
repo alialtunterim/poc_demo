@@ -58,14 +58,14 @@ view: order_items {
 
   dimension: order_id {
     type: number
-    label: "order id"
+    label: "order_id"
     # hidden: yes
     sql: ${TABLE}.order_id ;;
   }
 
   dimension: product_id {
     type: number
-    label: "product id"
+    label: "product_id"
     # hidden: yes
     sql: ${TABLE}.product_id ;;
   }
