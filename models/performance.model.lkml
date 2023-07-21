@@ -9,7 +9,7 @@ datagroup: performance_default_datagroup {
 
 persist_with: performance_default_datagroup
 
-label: "POC Performance"
+label: "DEMO Performance"
 
 explore: taxi_trips {
   label: "Chicago taxi trips"

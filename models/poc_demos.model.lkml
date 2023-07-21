@@ -15,11 +15,11 @@ datagroup: poc_demos_default_datagroup {
 
 persist_with: poc_demos_default_datagroup
 
-label: "POC Demo(e-commerce)"   # proje ismini değiştirir
+label: "DEMO e-commerce"   # proje ismini değiştirir
 
 explore: order_items {
-  label: "POC model (e-commerce)"   # model ismini değiştirir
-  description: "POC"   # proje açıklaması
+  label: "DEMO model e-commerce"   # model ismini değiştirir
+  description: "DEMO"   # proje açıklaması
   #persist_for: "0  seconds"
 
   join: orders {
