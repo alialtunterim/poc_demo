@@ -31,6 +31,7 @@ view: distribution_centers {
   dimension: name {
     type: string
     label: "Distribution Center"
+    description: "Dağıtım Merkezleri"
     sql: ${TABLE}.name ;;
   }
 
