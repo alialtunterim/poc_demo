@@ -18,7 +18,7 @@ persist_with: poc_demos_default_datagroup
 label: "DEMO e-commerce"   # proje ismini değiştirir
 
 explore: order_items {
-  label: "DEMO model e-commercee"   # model ismini değiştirir
+  label: "DEMO model e-commerce"   # model ismini değiştirir
   description: "DEMO"   # proje açıklaması
   #persist_for: "0  seconds"
 
