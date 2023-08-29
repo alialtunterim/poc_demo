@@ -21,6 +21,7 @@ explore: order_items {
   label: "DEMO model e-commerce"   # model ismini değiştirir
   description: "DEMO"   # proje açıklaması
   #persist_for: "0  seconds"
+  #aaaa
 
   join: orders {
     relationship: many_to_one
