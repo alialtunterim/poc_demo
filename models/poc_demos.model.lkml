@@ -29,8 +29,7 @@ explore: order_items {
   }
 
   join: products {
-    relationship: one_to_one
-    type: inner
+    relationship: many_to_one
     sql_on: ${products.id}=${order_items.product_id} ;;
   }
 
