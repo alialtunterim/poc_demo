@@ -24,11 +24,13 @@ explore: order_items {
 
   join: orders {
     relationship: many_to_one
+    #type: left_outer
     sql_on: ${orders.order_id} = ${order_items.order_id} ;;
   }
 
   join: products {
-    relationship: many_to_one
+    relationship: one_to_one
+    type: inner
     sql_on: ${products.id}=${order_items.product_id} ;;
   }
 
