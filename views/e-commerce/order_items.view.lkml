@@ -97,6 +97,7 @@ view: order_items {
 
   # satış datası filtrelendi.
   measure: total_sale_price_filtered {
+    description: "statü filtreli satış datası"
     type: sum
     value_format: "#,##0"
     sql: ${sale_price} ;;

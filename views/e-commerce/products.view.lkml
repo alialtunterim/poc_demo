@@ -121,6 +121,23 @@ view: products {
     #drill_fields: [detail*]
   #}
 
+  parameter: metric_picker {
+    type: unquoted
+    allowed_value: {
+      label: "Cost"
+      value: "cost"
+    }
+    allowed_value: {
+      label: "Retail Price"
+      value: "retail_price"
+    }
+  }
+
+  measure: dynamic_sum {
+    type: sum
+    sql: ${TABLE}.{% parameter metric_picker %} ;;
+  }
+
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
