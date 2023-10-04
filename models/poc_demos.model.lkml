@@ -65,5 +65,5 @@ explore: order_items {
 access_grant: object_permissions {      # Access grant ile herhangi bir kolonu yetkilendirebiliriz. Bu satırda isim verdik
   user_attribute: object_permission     # oluşturduğumuz user attribute ü tanımlıyoruz
   allowed_values: ["yetkili"]           # user attribute içerisindeki verilere göre izin veriyoruz
-  #inventory_items.total_cost
+  ## nventory_items.total_cost ##       # yetki tanımı yapılan obje
 }

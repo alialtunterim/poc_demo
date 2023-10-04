@@ -121,7 +121,9 @@ view: products {
     #drill_fields: [detail*]
   #}
 
-  parameter: metric_picker {
+  ## Metric Picker ##
+  #sadece tablodaki measurelara uygulanabilir.
+  parameter: prmtr_metric_picker {
     type: unquoted
     allowed_value: {
       label: "Cost"
@@ -132,10 +134,9 @@ view: products {
       value: "retail_price"
     }
   }
-
   measure: dynamic_sum {
     type: sum
-    sql: ${TABLE}.{% parameter metric_picker %} ;;
+    sql: ${TABLE}.{% parameter prmtr_metric_picker %} ;;
   }
 
   # ----- Sets of fields for drilling ------
