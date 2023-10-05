@@ -40,8 +40,8 @@ explore: order_items {
 
   join: inventory_items {
     relationship: many_to_one
-    sql_on: ${inventory_items.product_id}=${products.id} ;;
-    # and ${inventory_items.id}=${order_items.inventory_item_id};;
+    sql_on: ${inventory_items.id}=${order_items.inventory_item_id};;
+    #and ${inventory_items.product_id}=${products.id}
   }
 
   join: events{
