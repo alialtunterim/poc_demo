@@ -22,10 +22,17 @@ explore: order_items {
   description: "DEMO"   # proje açıklaması
   #persist_for: "0  seconds"
 
+  # bu filtre ile kullanıcının zorunlu bir seçim yapması sağlanır. model kısmında tanımlama yapılmalıdır.
+  # always_filter: {
+  #  filters: [orders.status: "Complete"]
+  # }
+
   join: orders {
     relationship: many_to_one
     #type: left_outer
     sql_on: ${orders.order_id} = ${order_items.order_id} ;;
+    # bu filtre ile kullanıcıya seçim yaptırmadan direk modeldeki ilgili tablonun filtrelenmiş olarak gelmesi sağlanır.
+    # sql_where: ${orders.status} = "Complete" ;;
   }
 
   join: products {

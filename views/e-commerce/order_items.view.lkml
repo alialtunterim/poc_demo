@@ -137,10 +137,12 @@ view: order_items {
     drill_fields: [products.category, products.brand, products.name]
   }
 
+  # bu filtre ile herhangi bir viewdaki bir alana ait filtreleme yapılabilir.
   filter: status_filter {
     type: string
     suggest_dimension: status
-    sql: EXISTS (SELECT status FROM order_items WHERE status = 'Complete') ;;
+    sql: status ='Complete'  ;;
+    default_value: "Complete"
   }
 
   dimension: user_id {
