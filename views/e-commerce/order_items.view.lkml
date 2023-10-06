@@ -137,6 +137,12 @@ view: order_items {
     drill_fields: [products.category, products.brand, products.name]
   }
 
+  filter: status_filter {
+    type: string
+    suggest_dimension: status
+    sql: EXISTS (SELECT status FROM order_items WHERE status = 'Complete') ;;
+  }
+
   dimension: user_id {
     type: number
     # hidden: yes
