@@ -141,7 +141,8 @@ view: order_items {
   filter: status_filter {
     type: string
     suggest_dimension: status
-    sql: status ='Complete'  ;;
+    # sql: status ='Complete'  ;;
+    sql: {% condition %} ${status} {% endcondition %} ;;
     default_value: "Complete"
   }
 
