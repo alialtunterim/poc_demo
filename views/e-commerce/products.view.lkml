@@ -121,16 +121,17 @@ view: products {
     #drill_fields: [detail*]
   #}
 
-  ## Metric Picker ##
+  ## Measure Picker ##
+  ## Bu özellik sayesinde seçilen measure raporda gösterilir.
   #sadece tablodaki measurelara uygulanabilir.
   parameter: prmtr_metric_picker {
     type: unquoted
     allowed_value: {
-      label: "Cost"
+      label: "Total Cost"
       value: "cost"
     }
     allowed_value: {
-      label: "Retail Price"
+      label: "Total Retail Price"
       value: "retail_price"
     }
   }
@@ -138,6 +139,7 @@ view: products {
     type: sum
     sql: ${TABLE}.{% parameter prmtr_metric_picker %} ;;
   }
+  ## Measure Picker ##
 
   # ----- Sets of fields for drilling ------
   set: detail {
