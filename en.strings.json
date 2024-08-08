@@ -1,7 +1,6 @@
 {
   "order_id" : "Order Number",
   "product_id" : "Product Number",
-  "SampleReport": "SampleReport",
-  "01- Sales Summary" : "01- SS"
+  "SampleReport": "SampleReport"
 
 }
