@@ -1,5 +1,6 @@
 {
   "order_id" : "Sipariş ID",
   "product_id" : "Ürün ID",
-  "SampleReport": "Örnek Rapor"
+  "sample dashboard" : "örnek dashboard tr",
+  "sample_look" : "örnek look tr"
 }
