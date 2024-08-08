@@ -74,3 +74,5 @@ access_grant: object_permissions {      # Access grant ile herhangi bir kolonu y
   allowed_values: ["yetkili"]           # user attribute içerisindeki verilere göre izin veriyoruz
   ## nventory_items.total_cost ##       # yetki tanımı yapılan obje
 }
+
+include: "/test.dashboard.lookml"
