@@ -2,6 +2,8 @@
 connection: "komtas-workshop"
 
 include: "/views/e-commerce/*.view.lkml"
+include: "/test.dashboard.lookml"
+
 
 # Datagroups define a caching policy for an Explore. To learn more,
 # use the Quick Help panel on the right to see documentation.
@@ -74,5 +76,3 @@ access_grant: object_permissions {      # Access grant ile herhangi bir kolonu y
   allowed_values: ["yetkili"]           # user attribute içerisindeki verilere göre izin veriyoruz
   ## nventory_items.total_cost ##       # yetki tanımı yapılan obje
 }
-
-include: "/test.dashboard.lookml"
