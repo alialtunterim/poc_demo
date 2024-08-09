@@ -1,6 +1,6 @@
 ---
 - dashboard: sample
-  title: sample
+  title: "sample"
   layout: newspaper
   preferred_viewer: dashboards-next
   description: 'buraya dashboard açıklaması gelecek.'
