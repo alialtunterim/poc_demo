@@ -2,7 +2,7 @@
 connection: "komtas-workshop"
 
 include: "/views/e-commerce/*.view.lkml"
-#include: "/dashboards/*.dashboard.lookml"
+include: "/dashboards/sample.dashboard.lookml"
 
 
 # Datagroups define a caching policy for an Explore. To learn more,
