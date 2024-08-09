@@ -3,7 +3,7 @@
   title: sample
   layout: newspaper
   preferred_viewer: dashboards-next
-  description: ''
+  description: 'buraya dashboard açıklaması gelecek.'
   preferred_slug: 4Rma1gvciQwjdK91r3ChKo
   elements:
   - title: sample
