@@ -85,11 +85,13 @@ view: order_items {
   }
 
   dimension: sale_price {
+    label: "satistutar"
     type: number
     sql: ${TABLE}.sale_price ;;
   }
 
   measure: total_sale_price {
+    label: "toplamsatistutar"
     type: sum
     value_format: "#,##0"
     sql: ${sale_price} ;;
