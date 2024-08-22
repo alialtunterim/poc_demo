@@ -61,10 +61,10 @@ explore: order_items {
       and ${events.user_id}=${orders.user_id};;
   }
 
-  join: users {
-    relationship: many_to_one
-    sql_on: ${users.id}=${events.user_id} ;;
-  }
+ # join: users {
+  #  relationship: many_to_one
+   # sql_on: ${users.id}=${events.user_id} ;;
+  #}
 
   access_filter: {      # access filter tanımlıyoruz. MODEL İÇERİSİNDE TANIMLANIR
     field: inventory_items.product_category      # hangi tablonun hangi kolonu yetkilendirilecek
