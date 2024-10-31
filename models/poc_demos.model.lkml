@@ -2,7 +2,7 @@
 connection: "komtas-workshop"
 
 include: "/views/e-commerce/*.view.lkml"
-include: "/dashboards/sample.dashboard.lookml"
+#include: "/dashboards/sample.dashboard.lookml"
 
 
 
