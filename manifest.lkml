@@ -5,6 +5,6 @@ local_dependency: {
 }
 
 localization_settings: {
-  default_locale: tr_TR   # Localization kısmından ayar değiştiğinde türkçe otomatik yüklenir.
+  default_locale: en # Localization kısmından ayar değiştiğinde türkçe otomatik yüklenir.
   localization_level: permissive
 }

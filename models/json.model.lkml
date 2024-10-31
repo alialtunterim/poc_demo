@@ -8,7 +8,7 @@ datagroup: json_default_datagroup {
   max_cache_age: "24 hours"
 }
 
-label: "POC JSON"
+label: "DEMO JSON"
 
 persist_with: json_default_datagroup
 

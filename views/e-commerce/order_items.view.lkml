@@ -58,14 +58,14 @@ view: order_items {
 
   dimension: order_id {
     type: number
-    label: "order id"
+    label: "order_id"
     # hidden: yes
     sql: ${TABLE}.order_id ;;
   }
 
   dimension: product_id {
     type: number
-    label: "product id"
+    label: "product_id"
     # hidden: yes
     sql: ${TABLE}.product_id ;;
   }
@@ -85,11 +85,13 @@ view: order_items {
   }
 
   dimension: sale_price {
+    label: "satistutar"
     type: number
     sql: ${TABLE}.sale_price ;;
   }
 
   measure: total_sale_price {
+    label: "toplamsatistutar"
     type: sum
     value_format: "#,##0"
     sql: ${sale_price} ;;
@@ -97,6 +99,7 @@ view: order_items {
 
   # satış datası filtrelendi.
   measure: total_sale_price_filtered {
+    description: "statü filtreli satış datası"
     type: sum
     value_format: "#,##0"
     sql: ${sale_price} ;;
@@ -134,6 +137,15 @@ view: order_items {
     type: string
     sql: ${TABLE}.status ;;
     drill_fields: [products.category, products.brand, products.name]
+  }
+
+  # bu filtre ile herhangi bir viewdaki bir alana ait filtreleme yapılabilir.
+  filter: status_filter {
+    type: string
+    suggest_dimension: status
+    # sql: status ='Complete'  ;;
+    sql: {% condition %} ${status} {% endcondition %} ;;
+    default_value: "Complete"
   }
 
   dimension: user_id {

@@ -21,7 +21,7 @@ view: products {
   dimension: brand {
     type: string
     sql: ${TABLE}.brand ;;
-    drill_fields: [category,name]
+    drill_fields: [category,name,order_items.status]
 
     link: {
       label: "Google Search"
@@ -43,6 +43,7 @@ view: products {
   dimension: cost {
     type: number
     sql: ${TABLE}.cost ;;
+    description: "maliyet"
   }
 
   # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
@@ -119,6 +120,26 @@ view: products {
    # type: count
     #drill_fields: [detail*]
   #}
+
+  ## Measure Picker ##
+  ## Bu özellik sayesinde seçilen measure raporda gösterilir.
+  #sadece tablodaki measurelara uygulanabilir.
+  parameter: prmtr_metric_picker {
+    type: unquoted
+    allowed_value: {
+      label: "Total Cost"
+      value: "cost"
+    }
+    allowed_value: {
+      label: "Total Retail Price"
+      value: "retail_price"
+    }
+  }
+  measure: dynamic_sum {
+    type: sum
+    sql: ${TABLE}.{% parameter prmtr_metric_picker %} ;;
+  }
+  ## Measure Picker ##
 
   # ----- Sets of fields for drilling ------
   set: detail {

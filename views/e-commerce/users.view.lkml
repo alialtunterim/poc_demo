@@ -57,11 +57,13 @@ view: users {
   }
 
   dimension: city {
+    group_label: "Geography"
     type: string
     sql: ${TABLE}.city ;;
   }
 
   dimension: city_lat_long {
+    group_label: "Geography"
     type: location
     sql_latitude: ${latitude} ;;
     sql_longitude: ${longitude} ;;
@@ -69,6 +71,7 @@ view: users {
   }
 
   dimension: country {
+    group_label: "Geography"
     type: string
     map_layer_name: countries
     sql: ${TABLE}.country ;;
@@ -112,26 +115,31 @@ view: users {
   }
 
   dimension: latitude {
+    group_label: "Geography"
     type: number
     sql: ${TABLE}.latitude ;;
   }
 
   dimension: longitude {
+    group_label: "Geography"
     type: number
     sql: ${TABLE}.longitude ;;
   }
 
   dimension: postal_code {
+    group_label: "Geography"
     type: string
     sql: ${TABLE}.postal_code ;;
   }
 
   dimension: state {
+    group_label: "Geography"
     type: string
     sql: ${TABLE}.state ;;
   }
 
   dimension: street_address {
+    group_label: "Geography"
     type: string
     sql: ${TABLE}.street_address ;;
   }
