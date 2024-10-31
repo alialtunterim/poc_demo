@@ -1,5 +1,6 @@
 {
   "order_id" : "Sipariş ID",
-  "product_id" : "Ürün ID"
+  "product_id" : "Ürün ID",
 
+"01- Sales Summary" : "01- Günlük Satışlar"
 }
