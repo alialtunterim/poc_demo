@@ -12,6 +12,10 @@ view: distribution_centers {
     primary_key: yes
     type: number
     sql: ${TABLE}.id ;;
+
+
+    html: {{ rendered_value }} | {{distribution_centers.name }} bu şekilde popuplara ekleme yapılabilir.;;
+
   }
 
   # Here's what a typical dimension looks like in LookML.
@@ -33,6 +37,54 @@ view: distribution_centers {
     label: "Distribution Center"
     description: "Dağıtım Merkezleri"
     sql: ${TABLE}.name ;;
+
+
+    action: {
+      label: "Deneme Başlık"
+      url: "https://desolate-refuge-53336.herokuapp.com/posts"
+      icon_url: "https://www.google.com/s2/favicons?domain=www.adwords.google.com"
+      param: {
+        name: "some_auth_code"
+        value: "abc123456"
+      }
+      form_param: {
+        type: select
+        name: "Campaign Type"
+        option: { name: "Spend" label: "Spend" }
+        option: { name: "Leads" label: "Leads" }
+        option: { name: "Website Traffic" label: "Website Traffic" }
+        required: yes
+      }
+      form_param: {
+        name: "Campaign Name"
+        type: string
+        required: yes
+        default: "{{ value }} Campaign"
+      }
+
+      form_param: {
+        name: "Product Category"
+        type: string
+        required: yes
+        default: "{{ value }}"
+      }
+
+      form_param: {
+        name: "Budget"
+        type: string
+        required: yes
+      }
+
+      form_param: {
+        name: "Keywords"
+        type: string
+        required: yes
+        default: "{{ name }}"
+      }
+    }
+
+
+
   }
 
   dimension: Center_Lat_Long{
