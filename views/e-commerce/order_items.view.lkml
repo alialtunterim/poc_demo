@@ -97,6 +97,21 @@ view: order_items {
     sql: ${sale_price} ;;
   }
 
+  dimension: reporting_period {
+    group_label: "Order Date"
+    sql: CASE
+        WHEN EXTRACT(YEAR from ${delivered_date}) = EXTRACT(YEAR from CURRENT_TIMESTAMP())
+        AND ${delivered_date} < CURRENT_TIMESTAMP()
+        THEN 'This Year to Date'
+
+      WHEN EXTRACT(YEAR from ${delivered_date}) + 1 = EXTRACT(YEAR from CURRENT_TIMESTAMP())
+      AND CAST(FORMAT_TIMESTAMP('%j', ${delivered_date}) AS INT64) <= CAST(FORMAT_TIMESTAMP('%j', CURRENT_TIMESTAMP()) AS INT64)
+      THEN 'Last Year to Date'
+
+      END
+      ;;
+  }
+
   # satış datası filtrelendi.
   measure: total_sale_price_filtered {
     description: "statü filtreli satış datası"
