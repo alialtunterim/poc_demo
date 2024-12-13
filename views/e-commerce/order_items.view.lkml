@@ -100,12 +100,12 @@ view: order_items {
   dimension: reporting_period {
     group_label: "Order Date"
     sql: CASE
-        WHEN EXTRACT(YEAR from ${delivered_date}) = EXTRACT(YEAR from CURRENT_TIMESTAMP())
-        AND ${delivered_date} < CURRENT_TIMESTAMP()
+        WHEN EXTRACT(YEAR from ${delivered_date}) = EXTRACT(YEAR from CURRENT_DATE())
+        AND ${delivered_date} < CURRENT_DATE()
         THEN 'This Year to Date'
 
-      WHEN EXTRACT(YEAR from ${delivered_date}) + 1 = EXTRACT(YEAR from CURRENT_TIMESTAMP())
-      AND CAST(FORMAT_TIMESTAMP('%j', ${delivered_date}) AS INT64) <= CAST(FORMAT_TIMESTAMP('%j', CURRENT_TIMESTAMP()) AS INT64)
+      WHEN EXTRACT(YEAR from ${delivered_date}) + 1 = EXTRACT(YEAR from CURRENT_DATE())
+      AND CAST(FORMAT_DATE('%j', ${delivered_date}) AS INT64) <= CAST(FORMAT_DATE('%j', CURRENT_DATE()) AS INT64)
       THEN 'Last Year to Date'
 
       END
